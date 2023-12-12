@@ -9,9 +9,11 @@ import restaurantModule from './restaurant.module.js';
 import User from './user.module.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT ;
 
 const __filename =fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,7 +32,7 @@ app.use(cors({ origin: '*' }));
 
 
 // MongoDB Connection
-const MONGODB_URI = process.env.mongoURI || 'mongodb+srv://bchintan99:chintan@cluster0.lbtbsd2.mongodb.net/sample_restaurants';
+const MONGODB_URI = process.env.MONGODB_URI; 
 
 const initializeMongoDB = async () => {
   try {
@@ -44,7 +46,7 @@ const initializeMongoDB = async () => {
 };
 
 // JWT Secret Key
-const jwtSecret = 'pnc';
+const jwtSecret = process.env.JWT_SECRET;
 
 // Middleware to verify JWT
 const authenticateJWT = (req, res, next) => {
