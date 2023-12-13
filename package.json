@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "scripts": {
+      "start": "node backend/src/index.js",
+      "start": "react-scripts start",
+    },
     "cors": "^2.8.5",
     "dotenv": "^16.3.1"
   }
